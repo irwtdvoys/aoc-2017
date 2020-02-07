@@ -1,0 +1,43 @@
+#!/usr/bin/env php
+<?php
+	define("ROOT", __DIR__ . "/../");
+
+	include_once(ROOT . "bin/init.php");
+
+/*	use Dotenv\Dotenv;
+
+	$dotenv = Dotenv::createImmutable(ROOT);
+	$dotenv->load();*/
+
+	dump($argv);
+
+	if (count($argv) <= 1)
+	{
+		throw new Exception("No parameters passed");
+	}
+
+	$parts = explode(":", $argv[1]);
+
+	$method = array_pop($parts);
+
+	$parts = array_map(
+		function($element) {
+			return ucwords($element);
+		},
+		$parts
+	);
+
+	$class = "AoC\\" . implode("\\", $parts);
+	$parameters = (object)array();
+
+	for ($index = 2; $index < count($argv); $index++)
+	{
+		$pattern = "/--(?'property'[a-z]+)=(?'value'[A-z0-9]+)/";
+
+		preg_match($pattern, $argv[$index], $matches);
+
+		$parameters->{$matches['property']} = $matches['value'];
+	}
+
+	$class::$method($parameters);
+?>
