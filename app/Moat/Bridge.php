@@ -3,6 +3,7 @@
 
 	class Bridge
 	{
+		/** @var Component[] $components */
 		public array $components = [];
 
 		public function add(Component $component)

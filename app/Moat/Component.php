@@ -3,6 +3,7 @@
 
 	class Component
 	{
+		/** @var int[] $ports */
 		public array $ports;
 
 		public function __construct(string $data)
