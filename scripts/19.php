@@ -3,11 +3,11 @@
 
 	require_once(ROOT . "bin/init.php");
 
-	use App\Duet;
+	use App\Tubes;
 
-	$helper = new Duet(18/*, ROOT . "data/18/example2"*/);
+	$helper = new Tubes(19);
 	$helper->run()->output();
 
-	// Part 1: 3188
-	// Part 2:
+	// Part 1: MKXOIHZNBL
+	// Part 2: 17872
 ?>

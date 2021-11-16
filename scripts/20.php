@@ -3,11 +3,11 @@
 
 	require_once(ROOT . "bin/init.php");
 
-	use App\Duet;
+	use App\Swarm;
 
-	$helper = new Duet(18/*, ROOT . "data/18/example2"*/);
+	$helper = new Swarm(20/*, ROOT . "data/20/example"*/);
 	$helper->run()->output();
 
-	// Part 1: 3188
-	// Part 2:
+	// Part 1: 258
+	// Part 2: 707
 ?>
